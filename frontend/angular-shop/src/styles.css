@@ -1,0 +1,9 @@
+:root { font-family: system-ui, Arial, sans-serif; }
+header { display:flex; gap:16px; align-items:center; padding:12px; border-bottom:1px solid #eee; }
+.container { max-width: 1000px; margin: 0 auto; padding: 16px; }
+.card { border: 1px solid #eee; border-radius: 12px; padding: 12px; margin: 8px 0; }
+button { padding: 8px 12px; border: none; border-radius: 8px; cursor: pointer; }
+input { padding: 8px; }
+.badge { background:#eee; padding:4px 8px; border-radius:999px; }
+.row { display:flex; gap:12px; flex-wrap:wrap; }
+.col { flex: 1 1 300px; }

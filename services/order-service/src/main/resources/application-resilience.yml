@@ -1,0 +1,14 @@
+resilience4j:
+  circuitbreaker:
+    instances:
+      paymentCb:
+        slidingWindowSize: 20
+        minimumNumberOfCalls: 10
+        failureRateThreshold: 50
+        waitDurationInOpenState: 10s
+  timelimiter:
+    instances:
+      paymentCb:
+        timeoutDuration: 3s
+management:
+  endpoints.web.exposure.include: health,info,prometheus

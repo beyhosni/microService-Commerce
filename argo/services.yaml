@@ -1,0 +1,31 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: order-service-stable
+spec:
+  selector: { app: order-service }
+  ports: [{ port: 80, targetPort: 8080, name: http }]
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: order-service-canary
+spec:
+  selector: { app: order-service }
+  ports: [{ port: 80, targetPort: 8080, name: http }]
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: order-service-active
+spec:
+  selector: { app: order-service }
+  ports: [{ port: 80, targetPort: 8080, name: http }]
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: order-service-preview
+spec:
+  selector: { app: order-service }
+  ports: [{ port: 80, targetPort: 8080, name: http }]

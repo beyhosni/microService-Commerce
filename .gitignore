@@ -1,0 +1,9 @@
+target/
+*.iml
+.idea/
+.project
+.settings/
+.classpath
+.mvn/
+**/application-local.yml
+**/.DS_Store

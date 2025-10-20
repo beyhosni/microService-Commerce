@@ -1,0 +1,28 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Rollout
+metadata:
+  name: order-service
+spec:
+  replicas: 3
+  strategy:
+    canary:
+      canaryService: order-service-canary
+      stableService: order-service-stable
+      steps:
+        - setWeight: 10
+        - pause: { duration: 60 }
+        - setWeight: 30
+        - pause: { duration: 120 }
+        - setWeight: 50
+  selector:
+    matchLabels:
+      app: order-service
+  template:
+    metadata:
+      labels:
+        app: order-service
+    spec:
+      containers:
+        - name: app
+          image: registry/order-service:1.0.0
+          ports: [{ containerPort: 8080 }]

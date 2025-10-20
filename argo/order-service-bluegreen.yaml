@@ -1,0 +1,23 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Rollout
+metadata:
+  name: order-service
+spec:
+  replicas: 3
+  strategy:
+    blueGreen:
+      activeService: order-service-active
+      previewService: order-service-preview
+      autoPromotionEnabled: false
+  selector:
+    matchLabels:
+      app: order-service
+  template:
+    metadata:
+      labels:
+        app: order-service
+    spec:
+      containers:
+        - name: app
+          image: registry/order-service:1.1.0
+          ports: [{ containerPort: 8080 }]
