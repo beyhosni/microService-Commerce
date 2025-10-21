@@ -1,7 +1,7 @@
 package com.example.order.web;
 import com.example.order.domain.CustomerOrder;
 import com.example.order.repo.OrderRepository;
-import com.example.order.messaging.OrderEvents.OrderCreated;
+import com.example.order.messaging.OrderCreated;
 import org.springframework.kafka.core.KafkaTemplate;
 import org.springframework.web.bind.annotation.*;
 import java.util.UUID;
