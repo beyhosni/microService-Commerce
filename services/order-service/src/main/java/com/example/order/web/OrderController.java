@@ -24,9 +24,10 @@ public class OrderController {
   @GetMapping("/{orderId}") public CustomerOrder byId(@PathVariable String orderId){ 
     return repo.findByOrderId(orderId).orElseThrow(); 
   }
-}
 
   @PostMapping("/pay/{orderId}")
   public java.util.Map<String,Object> pay(@PathVariable String orderId, com.example.order.client.PaymentClient client) throws Exception {
     return client.capture(orderId).get();
   }
+
+}
